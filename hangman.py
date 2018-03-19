@@ -2,15 +2,15 @@ import time
 import random
 import string
 import pygame
-import my_color 
+import my_color
 
-pygame.init() 
+pygame.init()
 
 # resolution
 screen_w = 1280
 screen_h = 960
 
-# Surface 
+# Surface
 screen = pygame.display.set_mode((screen_w,screen_h))
 
 # Title
@@ -32,6 +32,11 @@ def reset():
     streak = 0
     score = 0
     lives = 9
+
+def setLives(n):
+    global lives
+    lives = n
+    print("I was called")
 
 # Return the elapsed time in seconds has passed since start is marked
 def elapsed_time(start, dif):
@@ -150,6 +155,7 @@ def botton(smg, smgc, x, y, w, h, ic, ac, action=None):
 
             elif action == 'continue':
                 play_loop()
+                setLives(9)
 
             elif action == 'menu':
                 menu_loop()
@@ -231,7 +237,7 @@ def menu_loop():
 
 # Playing U
 def play_loop():
-    global word 
+    global word
     global lives
     global score
     global streak
@@ -254,7 +260,7 @@ def play_loop():
         botton('STREAKS: '+str(streak), my_color.black, 0, 200, 150, 50, my_color.green, my_color.dark_green)
         botton('LIVES: '+str(lives), my_color.black, 0, 250, 150, 50, my_color.green, my_color.dark_green)
         botton('BONUS: '+str(countdown(start_time, dif)), my_color.black, 0, 300, 150, 50, my_color.green, my_color.dark_green)
-        
+
         print_letter_tracking(correct, incorrect)
 
         for event in pygame.event.get():
@@ -266,7 +272,7 @@ def play_loop():
             # Handle keyboard input
             if pygame.key.get_focused():
                 press = pygame.key.get_pressed()
-                for i in range(0,len(press)): 
+                for i in range(0,len(press)):
                     if press[i]==1:
                         name = pygame.key.name(i)
 
@@ -311,14 +317,14 @@ def play_loop():
 
         # Out of lives
         if lives == 0:
-            reset()
+            #reset()
             end_loop()
 
         # UI Bottons
         botton('MENU', my_color.black, 0, screen_h-50, 150, 50, my_color.green, my_color.dark_green,'menu')
         botton('PAUSE', my_color.black, screen_w/2 - int(150/2), screen_h-50, 150, 50, my_color.green, my_color.dark_green,'pause')
         botton('RETRY', my_color.black, screen_w-150, screen_h-50, 150, 50, my_color.green, my_color.dark_green,'start')
-        
+
         # Keep track of frames
         pygame.display.update()
         clock.tick(60)
