@@ -87,7 +87,7 @@ def game_main():
         if lives <= 0 or not "_" in covered_word(word, correct):
             end = True
 
-        os.system("cls")
+        os.system("clear")
 
     # Result
     if lives > 0:
