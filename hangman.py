@@ -154,8 +154,8 @@ def botton(smg, smgc, x, y, w, h, ic, ac, action=None):
                 unpause()
 
             elif action == 'continue':
-                play_loop()
                 setLives(9)
+                play_loop()
 
             elif action == 'menu':
                 menu_loop()
