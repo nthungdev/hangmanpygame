@@ -1,6 +1,6 @@
 # Hangman Game
 Hangman is a word guessing game for one player. The player think of a letter to guess until they get the word correct before they are our of life. 
-![Game Title](/resources/title.png "Game Title")
+![Game Title](/resources/pictures/title.png "Game Title")
 
 ### Installation:
 The game is written in Python 3.6 and the graphical interface is developed using [Pygame](https://en.wikipedia.org/wiki/Pygame).
