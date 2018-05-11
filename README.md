@@ -21,5 +21,5 @@ python3 -m pip install -U pygame --user
 3. Run the game:  
 
 ```
-python3 main_gui.py
+python3 hangman.py
 ```
